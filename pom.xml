@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.nghiant</groupId>
+    <artifactId>selenium-2-go</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <exec.mainClass>org.nghiant.selenium.go.Selenium2Go</exec.mainClass>
+    </properties>
+    
+<!--    99,9% việc độ fille POM.XML LÀ ĐỘ Ở PHẦN DEPENDENCIES
+        Đây la nơi bạn khai báo các thư viện cần cài xài trong code
+        thư viện .jar mà nay gọi là dependency
+        Khi khai báo ở <dependencies> và nhấn clean & build
+        thì .jar đc tải từ internet về local ở .m2\
+        và .jar dc tự động add vào tron project
+        và cung cấp 1 loạt các class tương ứng để ta import và gọi xài 
+        ví dụ add dependecy Selenium thì ta có dc các class
+        WebDriver, By, WebElement mà mình đã đùng để play Google
+        
+        0.2% độ ở phần plugin; cho những thư viện chạy cùng  maven 
+        maven gọi nó-->
+    
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.9.3</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <!--Đây là khai báo về bộ thư viện/dependency giúp tự động điều khiển
+        trình duyệt = code. App chạy như ma nhập theo những dòng code của mình.
+        Điều khiển trình duyệt = code-->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.10.0</version>
+        </dependency>
+
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+            </plugin>
+            
+            <plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+            </plugin>
+        </plugins>
+    </build>
+    
+</project>
